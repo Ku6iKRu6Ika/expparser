@@ -31,10 +31,10 @@ while True:
 
 ## API
 ##### *class expparser.calculator.Calculator(variables: Dict[str, Union[float, int]] = {}, functions: Dict[str, Callable[[Union[float, int]], Union[float, int]]] = {})*
- - **Аргументы:**
-  - **variables(Dict[str, Union[float, int]], {})** - переменные
-  - **functions(Dict[str, Callable[[Union[float, int]], Union[float, int]]], {})** - функции
- - **calc(expression: str) -> Union[float, int]**
- Вычисляет значение выражения.
   - **Аргументы:**
-    - **expression(str)** - выражение
+    - **variables(Dict[str, Union[float, int]], {})** - переменные
+    - **functions(Dict[str, Callable[[Union[float, int]], Union[float, int]]], {})** - функции
+  - **calc(expression: str) -> Union[float, int]**
+    Вычисляет значение выражения.
+    - **Аргументы:**
+      - **expression(str)** - выражение
