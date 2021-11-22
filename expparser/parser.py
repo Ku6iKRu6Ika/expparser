@@ -1,13 +1,14 @@
 from .lexems import TokenType, Token
+from collections import deque
 from .constants import OPERATORS_PRIORITY
 from .exceptions import FormulaLogicError
 
 class ParserLexems:
     @staticmethod
-    def parse(tokens: list[TokenType]) -> list[TokenType]:
+    def parse(tokens: deque[TokenType]) -> deque[TokenType]:
         assert tokens, 'Empty list of tokens'
-        parse_tokens: list[TokenType] = []
-        stack: list[TokenType] = []
+        parse_tokens: deque[TokenType] = deque()
+        stack: deque[TokenType] = deque()
 
         for j, i in enumerate(tokens):
             if i.type == TokenType.NUMBER or i.type == TokenType.VARIABLE:

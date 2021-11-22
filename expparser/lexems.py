@@ -1,4 +1,5 @@
 from enum import Enum
+from collections import deque
 from .constants import OPERATORS
 from .exceptions import FormulaSyntaxError, FormulaUnknownSymbol
 
@@ -47,7 +48,7 @@ class Lexer:
     '''The main lexer class'''
 
     @staticmethod
-    def tokenize(experession: str) -> list[TokenType]:
+    def tokenize(experession: str) -> deque[TokenType]:
         '''
             Translates an expression into a list of tokens.
 
@@ -55,7 +56,7 @@ class Lexer:
                 Lexer.tokenize('2 + 2') => [<TokenType.NUMBER value=2.0>, <TokenType.OPERATOR value=+>, <TokenType.NUMBER value=2.0>]
         '''
 
-        tokens: list[TokenType] = []
+        tokens: deque[TokenType] = deque()
         i = 0 # Character index in expression
 
         experssion = experession.strip()

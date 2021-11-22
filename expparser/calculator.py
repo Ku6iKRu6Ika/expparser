@@ -4,6 +4,7 @@ from .constants import CONSTANTS, FUNCTIONS, OPERATORS_ACTIONS
 from .exceptions import FormulaUnknownVariable, FormulaUnknownFunction, FormulaLogicError
 
 from typing import Dict, Union, Callable
+from collections import deque
 from math import modf
 
 class Calculator:
@@ -21,9 +22,9 @@ class Calculator:
 
         return self._calc(tokens)
 
-    def _calc(self, tokens: list[TokenType]) -> Union[float, int]:
+    def _calc(self, tokens: deque[TokenType]) -> Union[float, int]:
         assert tokens, 'Empty list of tokens'
-        stack: list[TokenType] = []
+        stack: deque[TokenType] = deque()
 
         for token in tokens:
             if token.type == TokenType.NUMBER:
